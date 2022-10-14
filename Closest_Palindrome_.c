@@ -1,54 +1,53 @@
 #include<stdio.h>
-int pal(int num)
+int reverse(int a)
 {
-int rev=0,temp=num,r;
-while (temp>0)
-{
-r=temp%10;
-rev=(rev*10)+r;
-temp=temp/10;
-}
-if (rev==num)
-{
-return 1;
-}
-return 0;
+    int rev=0,r,temp;
+    temp=a;
+    while(a>0)
+    {
+        r=a%10;
+        rev=(rev*10)+r;
+        a=a/10;
+    }
+    if(temp==rev)
+    {
+        return 1;
+    }
+    return 0;
 }
 int main()
 {
-int a;
-scanf("%d",&a);
-int diff1=0,diff2=0,i,j;
-int pal1,pal2;
-for (i=a+1; i<=10000; i++)
-{
-if (pal(i)==1)
-{
-diff1=i-a;
-pal1=i;
-break;
-}
-}
-for (i=a-1; i>0; i--)
-{
-if (pal(i)==1)
-{
-diff2=a-i;
-pal2=i;
-break;
-}
-}
-if (diff1>diff2)
-{
-printf("%d",pal2);
-}
-else if (diff2==diff1)
-{
-printf("%d %d",pal2,pal1);
-}
-else
-{
-printf("%d",pal1);
-}
-return 0;
+    int n,i,j,s,v,sf=0,df=0;
+    scanf("%d",&n);
+    for(i=n+1;i<=10000;i++)
+    {
+        if(reverse(i)==1)
+        {
+            s=i;
+            df=i-n;
+            break;
+        }
+    }
+    for(j=n-1;j>=1;j--)
+    {
+        if(reverse(j)==1)
+        {
+            v=j;
+            sf=n-j;
+            break;
+        }
+    }
+    if(df>sf)
+    {
+        printf("%d",v);
+    }
+     else if(df==sf)
+    {
+        printf("%d %d",v,s);
+    }
+    else
+    {
+        printf("%d",s);
+    }
+    
 }
