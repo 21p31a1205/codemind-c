@@ -1,22 +1,17 @@
 #include<stdio.h>
 int main()
 {
-    int n,r,i,fact=0;
+    int n,s=0,i;
     scanf("%d",&n);
-   for(i=1;i<=n/2;i++)
+    for(i=1;i<n;i++)
     {
         if(n%i==0)
         {
-            fact+=i;
+            s=s+i;
         }
-   
     }
-    if(fact>n)
-    {
-        printf("True");
-    }
+    if(s>n)
+     printf("True");
     else
-    {
-        printf("False");
-    }
+     printf("False");
 }
